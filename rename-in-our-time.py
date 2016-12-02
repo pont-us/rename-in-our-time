@@ -50,7 +50,7 @@ def makemap(xml_file):
         title = get("title")
         pubdate = datetime.strptime(get("pubDate"), date_fmt)
         datestr = datetime.strftime(pubdate, "%y%m%d")
-        filename = os.path.basename(get("link"))
+        filename = os.path.basename(item.find("enclosure").get("url"))
         desc = get("description")
         newname = "iot-%s-%s.mp3" % \
                   (datestr,
